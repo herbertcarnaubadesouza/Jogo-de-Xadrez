@@ -1,6 +1,8 @@
 ﻿
 namespace tabuleiro
 {
+    // enum das cores, branca,preta,amarela,azul,vermelha,verde,laranja
+
     enum Cor
     {
         Branca,
@@ -10,5 +12,6 @@ namespace tabuleiro
         Vermelha,
         Verde,
         Laranja
+
     };
 }

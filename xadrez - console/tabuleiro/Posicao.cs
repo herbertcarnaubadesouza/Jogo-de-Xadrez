@@ -2,21 +2,20 @@
 namespace tabuleiro
 {
     class Posicao
+
+        //atributos : int linha/ int coluna
+        // construtor
+
     {
-        public int linha { get; set; }
-        public int coluna { get; set; }
+        public int linha;
+        public int coluna;
 
         public Posicao(int linha, int coluna)
         {
             this.linha = linha;
             this.coluna = coluna;
+
         }
 
-        public override string ToString()
-        {
-            return this.linha
-                + ", "
-                + coluna;
-        }
     }
 }
