@@ -3,8 +3,8 @@ namespace tabuleiro
 {
     class Posicao
 
-        //atributos : int linha/ int coluna
-        // construtor
+        //A classe posicao possui linha e coluna.
+        //A classe possui um metodo para imprimir sua linha e sua coluna;
 
     {
         public int linha;

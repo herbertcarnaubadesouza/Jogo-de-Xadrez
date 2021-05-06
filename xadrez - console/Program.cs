@@ -7,14 +7,21 @@ namespace xadrez___console
     {
         static void Main(string[] args)
         {
+            try
+            {
+                PartidaDeXadrez partida = new PartidaDeXadrez();
 
-            PosicaoXadrez pos = new PosicaoXadrez('c', 7);
+                Tela.imprimirTabuleior(partida.tab);
+                
+                
+                Console.ReadLine();
 
-            Console.WriteLine(pos);
+            }
+            catch (TabuleiroException e )
+            {
 
-            Console.WriteLine(pos.toPosicao());
-
-            Console.ReadLine();
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
