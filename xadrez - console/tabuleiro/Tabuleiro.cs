@@ -56,7 +56,7 @@ namespace tabuleiro
         }
         public void validarPosicao(Posicao pos)
         {
-            if (!posicaoValida(pos))
+            if (!posicaoValida(pos))//ja vem no if como 'true', logo sinal de '!' para diferenciar
             {
                 throw new TabuleiroException("Posição inválida!");
             }

@@ -17,5 +17,10 @@ namespace tabuleiro
 
         }
 
+        public override string ToString()
+        {
+            return linha.ToString() +" , "+ coluna.ToString();
+        }
+
     }
 }
