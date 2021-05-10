@@ -1,7 +1,7 @@
 ﻿
 namespace tabuleiro
 {
-    class Peca
+    abstract class Peca
     //toda peca tem uma Posicao(linha,coluna), uma Cor, uma certa quantidade de movimentos, E esta associada com um tabuleiro;
     //ela possui um metodo para incrementar certa quantidade de Movimentos
     {
@@ -21,6 +21,9 @@ namespace tabuleiro
         {
             this.qtdMovimentos++;
         }
+
+        public abstract bool[,] movimentosPossiveis();
+        
         
 
 
