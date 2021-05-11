@@ -4,7 +4,7 @@ namespace tabuleiro
 {
     class TabuleiroException : ApplicationException
     {
-        //classe criada, pertencente a classe ApplicationException, feita para mostrar erros personalizados apenas
+        //A classe eh do tipo ApplicationException onde tratam as exceções
         public TabuleiroException(string message) : base(message)
         {
 

@@ -3,6 +3,11 @@ namespace xadrez
 {
     class Torre : Peca
     {
+        // A classe torre extende da classe Peca
+        //A classe possui um metodo toString , onde ela retorna a letra T
+        //A classe possui o metodo podemover onde ele verifica se a peca pode mover para certa posicao
+        //A classe possui o mesmo metodo movimentos possiveis que é igual ao da classe Rei
+
         public Torre(Tabuleiro tab, Cor cor) : base(tab, cor)
         {
 

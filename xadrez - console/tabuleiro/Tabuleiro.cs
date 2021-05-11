@@ -3,12 +3,16 @@ namespace tabuleiro
 {
     class Tabuleiro
     {
-        //A classe tabuleiro possui linhas, colunas e esta ligada com a classe Peca;
-        //como o atributo Peca[,] pecas eh privado, o unico jeito de acessar ele é pelo método Peca peca, que retorna o proprio atributo Peca
-        //A classe possui o atributo sobrescrito Peca peca, que retorna o atributo pecas mas apenas escrevendo a posicao.
-        // A classe possui uma logica de validação que começa com        ||posição valida --> validar posicao -->existepeca||
-        //A classe possui um metodo retirar Peca, que verifica em um dos caminhos se a posição for vazia, retornando nada,e  o outro, que armazena a posição da Peca em uma variavel, declara a 
-        //Posicao dela como vazia de duas formas e retorna a pec aux;
+        //A classe tabuleiro possui linhas e colunas e a classe tabuleiro tem uma matriz do tipo Peca.
+        //O construtor da classe Tabuleiro recebe as linhas e as colunas e adiciona na matriz do tipo Peca que ela possui.
+        //Como a matriz peca é privativa foram criador metodos "get" para pegar a matriz.Um deles tem a linha e as colunas como parametro, outro deles recebe apenas a posicao.
+        //O metodo booleano posicaoValida verifica a posicao entre 0 e 8, caso for entre os valores, o metodo retorna true, caso não, o metodo retorna false.
+        //O metodo validar Peca trata a exceção, que se o metodo posicaoValida retornar falso, ele manda uma mensagem de erro.
+        //O metodo booleano existePeca valida a posicao, e retorna a peca que não for diferente de null, ou seja que exista.
+        //O metodo void colocarPeca verifica se existe uma peca com o metodo existePeca, se for true, trata o erro com uma exceção.Assim a matriz do tipo pecas recebe a peca informada,e a pocicao da peca recebe a posicao informada.
+        //O metodo retirar Peca do tipo Peca, se a posicao da peca for vazia, retorna null(nada).Se não,
+        // uma Peca auxiliar recebe a posicao informada.A posicao da peca auxiliar é dada como null.A matriz do tipo Pecas tem sua linha e coluna dada como nulle e a variavel aux vazia é retornada
+
 
         public int linhas { get; set; }
         public int colunas { get; set; }

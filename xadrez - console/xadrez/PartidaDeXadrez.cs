@@ -4,16 +4,18 @@ namespace xadrez
 {
     class PartidaDeXadrez
     {
-        //PartidaDeXadrez relacionada a mecanica do jogo de xadrez
-        //A classe faz ligação com o tabuleiro e possui um turno e uma Cor relacionada ao jogador atual
-        //A classe começa instanciando o tamanho do tabuleiro, com o turno = 1 e o jogador atual recebe a cor Branca, pois o turno começa com as brancas
-        //O construtor recebe um metodo suporte que é o colocarPecas(), onde ele poem a Peca(o tabuleiro, e sua cor), e Insancia a classe PosicaoXadrez(informando um char(coluna) e um int(linha),
-        //e utiliza o metodo toPosicao() para converter para numeros relacionados a matriz(converter para o formato da classe Posicao)
+        //A classe PartidaDeXadrez é onde a mecanica do jogo é colocada.
+        //ela faz ligação com o tabuleiro, declara um turno, faz ligação com o Enum Cor relacionada ao jogadorAtual e uma variavel boolena chamada terminada.
+        //O construtor instancia um tabuleiro de 8 linhas e 8 colunas, o turno começa com 1 , o jogador atual começa na cor branca e terminada começa no false.
+        //Dentro do construtor o metodo privativo auxiliar é colocado.Assim pelo tabuleiro as peças são colocadas instanciando a peça e sua posicao.
+        //O metodo executa movimento retira a peça do tabuleiro na posicao origem, incrementa a quantidade de movimentos da peça p(somando um),captura a peca e coloca a peca p na posicao destino(informada pelo usuario).
+
+
 
         public Tabuleiro tab { get; private set; }
 
-        private int turno;
-        private Cor jogadorAtual;
+        public int turno { get; private set; }
+        public Cor jogadorAtual { get; private set; }
         public bool terminada { get; private set; }
 
 
@@ -33,9 +35,56 @@ namespace xadrez
             Peca pecaCaputarada = tab.retirarPeca(destino);
             tab.colocarPeca(p, destino);
 
-
+        }
+        public void realizaJogada(Posicao origem, Posicao destino)
+        {
+            executaMovimento(origem, destino);
+            turno++;
+            mudaJogador();
 
         }
+
+        public void validarPosicaoDeOrigem(Posicao pos)
+        {
+            if (tab.peca(pos) == null)
+            {
+                throw new TabuleiroException("Não existe peça na posição de origem escolhida!");
+            }
+            if (jogadorAtual != tab.peca(pos).cor)
+            {
+                throw new TabuleiroException("A peça de origem escolhida não é sua!");
+            }
+            if (!tab.peca(pos).existeMovimentosPossiveis())
+            {
+                throw new TabuleiroException("Não há movimentos possíveis para a peça de origem escolhida");
+            }
+        }
+
+        public void validarPosicaoDeDestino(Posicao origem, Posicao destino)
+        {
+            if (!tab.peca(origem).podemoverPara(destino))
+            {
+                throw new TabuleiroException("Posição de destino inválida!");
+            }
+        }
+
+
+
+
+        private void mudaJogador()
+        {
+            if (jogadorAtual == Cor.Branca)
+            {
+                jogadorAtual = Cor.Preta;
+            }
+            else
+            {
+                jogadorAtual = Cor.Branca;
+            }
+        }
+
+
+
         private void colocarPecas()
         {
             tab.colocarPeca(new Torre(tab, Cor.Branca), new PosicaoXadrez('c',1).toPosicao());
