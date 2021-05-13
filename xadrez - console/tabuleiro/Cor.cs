@@ -1,7 +1,7 @@
 ﻿
 namespace tabuleiro
 {
-    //A classe Cor na verdade é um enum com as cores branca,preta,amarela,Azul,Vermelha,Verde,Laranja
+    //O enum cor possui as cores , irá ser usada para as peças
     
 
     enum Cor

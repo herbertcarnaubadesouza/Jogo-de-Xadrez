@@ -3,9 +3,10 @@ namespace xadrez
 {
     class PosicaoXadrez
     {
-        //A classe posicaoXadrez possui uma coluna char e uma linha int.Seu construtor é normal, recebe a coluna char e linha int e manda para a classe.
-        //A classe possui um metodo toPosicao() onde retorna a posicao em formato de matriz
-        //A classe possui um metodo to string para retornar a coluna e a linha da classe, quando executado.
+        //A classe PosicaoXadrez recebe uma coluna do tipo char e um int do tipo linha.
+        // O construtor desta classe é padrao
+        // O metodo mais importante de classe é o toPosicao, onde ele converte uma posicao de coluna e uma linha do tipo de xadrez para o tipo de matriz
+        //A classe possui um metodo tostring para transformar a coluna e a linha em uma string
 
         public char coluna{ get; set; }
         public int linha { get; set; }

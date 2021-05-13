@@ -3,25 +3,18 @@ namespace xadrez
 {
     class Rei : Peca
     {
-        //A classe Rei extende da classe Peca.
-        //A classe possui um metodo toString onde ela retorna o caracter R
-        // O metodo privativo podeMover recebe a peca e diz que se a posicao da p for vazia ou a cor da peca for diferente da cor da mesma, ela pode mover.
-        // O metodo booleano movimentosPossiveis instancia uma matriz boolena que possui as linhas e as colunas do tabuleiro.Sendo que a posição começa com zero.
-        //Ele define a posicao da peca e verifica se ele podemover para a posicao e se a posicao é valida, caso sim, a matriz com a posicao e a coluna igual a true.Os movimentos depende de cada peça
-
-
-
-        public Rei(Tabuleiro tab, Cor cor) : base(tab, cor)
+        public Rei(Tabuleiro tab, Cor cor) : base(tab, cor) //O construtor da classe rei apenas preenche os parametros do construtor da classe Peca
         {
 
         }
-        public override string ToString()
+        public override string ToString() //A classe possui um metoto toString para retornar uma string R. 
         {
             return "R";
         }
 
 
-        private bool podeMover(Posicao pos)
+        private bool podeMover(Posicao pos) // O metodo booleano podeMover recebe uma posicao.Assim uma peca recebe a peca que esta naquela posicao;
+                                            //Assim o metodo retorna null se a peca estiver vazia ou se sua cor é diferente.
         {
             Peca p = tabuleiro.peca(pos);
             return p == null || p.cor != this.cor;
@@ -29,16 +22,18 @@ namespace xadrez
 
         }
 
-        public override bool[,] movimentosPossiveis()
+        public override bool[,] movimentosPossiveis()       //O metodo movimentos possiveis é do tipo matriz booleana
+                                                            // Uma matriz booleana é criada e ela possui a linha e a coluna do tabuleiro
+                                                            //A posicao é instanciada na linha zero e coluna zero
         {
             bool[,] mat = new bool[tabuleiro.linhas, tabuleiro.colunas];
 
             Posicao pos = new Posicao(0, 0);
 
             //acima
-            pos.definirValores(posicao.linha - 1, posicao.coluna);
-            if (tabuleiro.posicaoValida(pos) && podeMover(pos))
-            {
+            pos.definirValores(posicao.linha - 1, posicao.coluna);  //Acima significa que a linha é diminuida em um e a coluna permanece igual
+            if (tabuleiro.posicaoValida(pos) && podeMover(pos))     //Se a posicao for valida ,se nao tiver peça ou se tiver peça de cor diferente
+            {                                                       //A matriz de booleana é instanciada recebendo aquela linha e coluna= true;
                 mat[pos.linha, pos.coluna] = true;
             }
             //nordeste

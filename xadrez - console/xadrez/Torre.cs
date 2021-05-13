@@ -3,22 +3,17 @@ namespace xadrez
 {
     class Torre : Peca
     {
-        // A classe torre extende da classe Peca
-        //A classe possui um metodo toString , onde ela retorna a letra T
-        //A classe possui o metodo podemover onde ele verifica se a peca pode mover para certa posicao
-        //A classe possui o mesmo metodo movimentos possiveis que é igual ao da classe Rei
-
-        public Torre(Tabuleiro tab, Cor cor) : base(tab, cor)
+        public Torre(Tabuleiro tab, Cor cor) : base(tab, cor)       //A classe preenche o construtor da classe Peca
         {
 
         }
-        public override string ToString()
+        public override string ToString()           //A classe tem o metodo ToString que imprime T
         {
             return "T";
         }
 
 
-        private bool podeMover(Posicao pos)
+        private bool podeMover(Posicao pos)         //O metodo pode mover confere se não tem peça ali ou se a cor for diferente(para comer ela)
         {
             Peca p = tabuleiro.peca(pos);
             return p == null || p.cor != this.cor;
@@ -26,14 +21,14 @@ namespace xadrez
 
         }
 
-        public override bool[,] movimentosPossiveis()
-        {
-            bool[,] mat = new bool[tabuleiro.linhas, tabuleiro.colunas];
-
-            Posicao pos = new Posicao(0, 0);
-
-            //acima
-            pos.definirValores(posicao.linha - 1, posicao.coluna);
+        public override bool[,] movimentosPossiveis()                   
+        {                                                                //Uma matriz de booleana foi instanciada, com as linhas do tabuleiro e as colunas do tabuleiro
+            bool[,] mat = new bool[tabuleiro.linhas, tabuleiro.colunas]; //Uma posicao é instanciada com a linha em zero e a coluna em zero
+                                                                         //Assim se for acima a posicao da linha é dada como -1 e a posicao da coluna continua a mesma.
+            Posicao pos = new Posicao(0, 0);                             //Enquanto a posicao for valida e poder mover a peça continua indo para frente
+                                                                         //Assim a matriz com a posicao nova é retornada como true.
+            //acima                                                      //Se a posicao da peca for diferente de vazio(encontrou uma peca) e encontrou uma peca da sua cor diferente, ele para.
+            pos.definirValores(posicao.linha - 1, posicao.coluna);       //Se nao o valor da linha vai diminuido em 1
             while (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;

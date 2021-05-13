@@ -2,12 +2,14 @@
 namespace tabuleiro
 {
     abstract class Peca
-        //A classe é abstrata e mãe da Classe Torre e Rei
-        //A classe peca faz ligação com  Posicao, que possui linha e coluna.Possui relacao com a cor.Possui um atributo chamado quantidade de movimentos.E faz ligação com a classe tabuleiro
-        //em seu construtor so é necessario infomar o tabuleiro e a cor, pois a posicao começa vazia, e a quantidade de movimentos começa em zero
-        //A classe possui um metodo incrementar QtdMovimentos, onde a quantidade de movimentos eh somada 1
-        //Por fim a classe possui um metodo abstrato relacionado aos movimentosPossiveis da peça
-        
+        //A classe peca possui uma posicao(linha,coluna), um Enum cor, certa quantidade de movimentos,e ligação com o tabuleiro
+        //Para instanciar uma peça tem de informar o tabuleiro e a cor da peca.Sua posicao começa com zero e a quantidade de movimentos começa com zero.
+        //O metodo incrementarQtdMovimentos aumenta a quantidade de movimentos da peca em 1.
+        //O metodo decrementarQtdMovimentos, diminui a quantidade de movimentos da peça em um.
+        //O metodo boolenano existe movimentosPossiveis instancia uma matriz de booleano, que recebe os movimentos possiveis de cada peça, ele percorre a matriz, se retornar verdadeiro, retorna true, caso nao, retorna false
+        //O metodo podeMoverPara recebe uma posicao e retorna os movimentosPossiveis de uma peça
+        //O metodo abstrato booleano movimentosPossiveis ira ser utilizado pelas classes filha da classe Mãe peça(Torre,Rei,Cavalo,Bispo)
+    
     {
         public Posicao posicao { get; set; }
         public Cor cor { get; protected set; }
@@ -24,6 +26,11 @@ namespace tabuleiro
         public void incrementarQtdMovimenots()
         {
             this.qtdMovimentos++;
+        }
+
+        public void decrementarQtdMovimentos()
+        {
+            this.qtdMovimentos--;
         }
 
         public bool existeMovimentosPossiveis()
