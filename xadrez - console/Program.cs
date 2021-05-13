@@ -47,11 +47,10 @@ namespace xadrez___console
                     }
                    
                 }
-
+                Console.Clear();
                 Tela.imprimirTabuleior(partida.tab);
                 
                 
-                Console.ReadLine();
 
             }
             catch (TabuleiroException e )
@@ -59,6 +58,8 @@ namespace xadrez___console
 
                 Console.WriteLine(e.Message);
             }
+
+            Console.ReadLine();
         }
     }
 }
